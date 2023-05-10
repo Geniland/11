@@ -11,7 +11,6 @@
                 <th>Id</th>
                 <th>Title</th>
                 <th>Contenu</th>
-                <th>Image</th>
                 <th>Auteur</th>
                 <th>DateCreation</th>
                 <th>DateMiseAJour</th>
@@ -24,7 +23,6 @@
                 <td>{{ article.id }}</td>
                 <td>{{ article.title }}</td>
                 <td>{{ article.contenu }}</td>
-                <td>{{ article.image }}</td>
                 <td>{{ article.auteur }}</td>
                 <td>{{ article.dateCreation ? article.dateCreation|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ article.dateMiseAJour ? article.dateMiseAJour|date('Y-m-d H:i:s') : '' }}</td>

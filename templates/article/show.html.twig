@@ -19,10 +19,7 @@
                 <th>Contenu</th>
                 <td>{{ article.contenu }}</td>
             </tr>
-            <tr>
-                <th>Image</th>
-                <td>{{ article.image }}</td>
-            </tr>
+ 
             <tr>
                 <th>Auteur</th>
                 <td>{{ article.auteur }}</td>
@@ -35,6 +32,7 @@
                 <th>DateMiseAJour</th>
                 <td>{{ article.dateMiseAJour ? article.dateMiseAJour|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
+            <img src="{{vich_uploader_asset(article,'imageFile')}}" alt="" style="width:150px">
         </tbody>
     </table>
 

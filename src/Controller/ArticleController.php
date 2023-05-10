@@ -77,4 +77,14 @@ class ArticleController extends AbstractController
 
         return $this->redirectToRoute('app_article_index', [], Response::HTTP_SEE_OTHER);
     }
+
+    
+    #[Route('/test/{nom}', name:'app_test')]
+    public function test(Request $req, $nom){
+        $a = $req->query->get('nom');
+        $b = $req->get('nom');
+        // $c = $req->request->all();
+
+        return new Response($a);
+    }
 }

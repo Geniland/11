@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use App\Repository\AbonnementRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Routing\Annotation\Route;
 
 #[ORM\Entity(repositoryClass: AbonnementRepository::class)]
 class Abonnement
@@ -17,4 +19,5 @@ class Abonnement
     {
         return $this->id;
     }
+
 }
