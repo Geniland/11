@@ -1,9 +1,13 @@
-<!DOCTYPE html>
-
-<title>Article index</title>
+{% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Article index</h1>
+    <!DOCTYPE html>
+    <title>Article  </title>
+  
+
+
+    <h5>Vous etes connecter entant que :{{ app.user.userIdentifier }}<br> Article  </h5>
+    <a class="btn btn-warning" href="{{ path('app_logout') }}">Logout</a>
 
     <table class="table">
         <thead>
@@ -27,8 +31,8 @@
                 <td>{{ article.dateCreation ? article.dateCreation|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ article.dateMiseAJour ? article.dateMiseAJour|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
-                    <a href="{{ path('app_article_show', {'id': article.id}) }}">show</a>
-                    <a href="{{ path('app_article_edit', {'id': article.id}) }}">edit</a>
+                    <a class="btn btn-success btn-sm mb-2" href="{{ path('app_article_show', {'id': article.id}) }}">show</a>
+                    <a  class="btn btn-primary btn-sm mb-2" href="{{ path('app_article_edit', {'id': article.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -40,4 +44,5 @@
     </table>
 
     <a href="{{ path('app_article_new') }}">Create new</a>
+    
 {% endblock %}
