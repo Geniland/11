@@ -14,6 +14,7 @@
             <tr>
                 <th>Id</th>
                 <th>Title</th>
+                <th>Image</th>
                 <th>Contenu</th>
                 <th>Auteur</th>
                 <th>DateCreation</th>
@@ -26,6 +27,14 @@
             <tr>
                 <td>{{ article.id }}</td>
                 <td>{{ article.title }}</td>
+                <td>
+                    {% if article.imageName %}
+                        <img src="{{ vich_uploader_asset(article, 'imageFile') }}" alt="{{ article.title }}" width="100">
+                    {% else %}
+                        No image
+                    {% endif %}
+                </td>
+                
                 <td>{{ article.contenu }}</td>
                 <td>{{ article.auteur }}</td>
                 <td>{{ article.dateCreation ? article.dateCreation|date('Y-m-d H:i:s') : '' }}</td>

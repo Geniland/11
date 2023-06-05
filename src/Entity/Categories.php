@@ -21,6 +21,12 @@ class Categories
     #[ORM\OneToMany(mappedBy: 'categorie', targetEntity: Article::class)]
     private Collection $articles;
 
+    public function __toString()
+    {
+        return $this->intitule;
+    }
+
+
     public function __construct()
     {
         $this->articles = new ArrayCollection();
