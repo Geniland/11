@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block page_title %}{{ block('admin_title') }}{% endblock %}</title>
+    {% block stylesheets %}{% endblock %}
+</head>
+<body>
+    <nav>
+        {% block main_menu %}{% endblock %}
+    </nav>
+
+    <header>
+        {% block header_title %}{% endblock %}
+    </header>
+
+    <main>
+        {% block main_content %}{% endblock %}
+    </main>
+
+    <footer>
+        {% block footer_content %}{% endblock %}
+    </footer>
+
+    {% block javascripts %}{% endblock %}
+</body>
+</html>

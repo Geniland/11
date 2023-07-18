@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hommes{% endblock %}
+
+{% block body %}
+    <h1>Hommes</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ homme.id }}</td>
+            </tr>
+            <tr>
+                <th>HommeImages</th>
+                <td>{{ homme.HommeImages }}</td>
+            </tr>
+            <tr>
+                <th>HommeNom</th>
+                <td>{{ homme.HommeNom }}</td>
+            </tr>
+            <tr>
+                <th>HommePrix</th>
+                <td>{{ homme.HommePrix }}</td>
+            </tr>
+            <tr>
+                <th>HommeEtat</th>
+                <td>{{ homme.HommeEtat }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_hommes_index') }}">back to list</a>
+
+    <a href="{{ path('app_hommes_edit', {'id': homme.id}) }}">edit</a>
+
+    {{ include('hommes/_delete_form.html.twig') }}
+{% endblock %}

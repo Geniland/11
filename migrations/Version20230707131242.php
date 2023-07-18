@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20230602141751 extends AbstractMigration
+final class Version20230707131242 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -24,6 +24,8 @@ final class Version20230602141751 extends AbstractMigration
         $this->addSql('CREATE TABLE article (id INT AUTO_INCREMENT NOT NULL, categorie_id INT NOT NULL, title VARCHAR(255) NOT NULL, contenu VARCHAR(255) NOT NULL, image_name VARCHAR(255) DEFAULT NULL, image_size INT DEFAULT NULL, updated_at DATETIME DEFAULT NULL COMMENT \'(DC2Type:datetime_immutable)\', auteur VARCHAR(255) NOT NULL, date_creation DATETIME NOT NULL, date_mise_ajour DATETIME NOT NULL, INDEX IDX_23A0E66BCF5E72D (categorie_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE categories (id INT AUTO_INCREMENT NOT NULL, intitule VARCHAR(255) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE commentaire (id INT AUTO_INCREMENT NOT NULL, date DATETIME NOT NULL, message VARCHAR(255) NOT NULL, auteur VARCHAR(255) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE femmes (id INT AUTO_INCREMENT NOT NULL, femme_image LONGBLOB NOT NULL, femme_nom VARCHAR(255) NOT NULL, femme_prix INT NOT NULL, femme_etat INT NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE hommes (id INT AUTO_INCREMENT NOT NULL, homme_images LONGBLOB NOT NULL, homme_nom VARCHAR(255) NOT NULL, homme_prix INT NOT NULL, homme_etat INT NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE image (id INT AUTO_INCREMENT NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE newsletters (id INT AUTO_INCREMENT NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE tag (id INT AUTO_INCREMENT NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
@@ -40,6 +42,8 @@ final class Version20230602141751 extends AbstractMigration
         $this->addSql('DROP TABLE article');
         $this->addSql('DROP TABLE categories');
         $this->addSql('DROP TABLE commentaire');
+        $this->addSql('DROP TABLE femmes');
+        $this->addSql('DROP TABLE hommes');
         $this->addSql('DROP TABLE image');
         $this->addSql('DROP TABLE newsletters');
         $this->addSql('DROP TABLE tag');

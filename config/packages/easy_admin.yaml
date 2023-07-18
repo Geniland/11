@@ -12,3 +12,7 @@ easy_admin:
                     - username
                     - email
                     - password
+
+    design:
+        templates:
+            - 'admin/my-dashboard.html.twig'
