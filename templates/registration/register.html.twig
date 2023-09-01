@@ -1,17 +1,146 @@
+
+
 <!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f1f1f1;
+            perspective: 1000px; /* Effet 3D */
+        }
 
-<title>Register</title>
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0 auto;
+        }
 
-{% block body %}
-    <h1>Register</h1>
+        .register-form {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 400px;
+            max-width: 100%;
+            transform: rotateY(20deg); /* Effet 3D */
+            transition: transform 0.5s ease;
+        }
 
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
+        .register-form:hover {
+            transform: rotateY(0deg); /* Effet 3D au survol */
+        }
 
-        <button type="submit" class="btn">Register</button>
-    {{ form_end(registrationForm) }}
-{% endblock %}
+        .form-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            width: 100px;
+            font-weight: bold;
+        }
+
+        .form-group input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0 auto;
+        }
+
+        .register-form {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 400px;
+            max-width: 100%;
+            transform: rotateY(20deg); /* Effet 3D */
+            transition: transform 0.5s ease;
+        }
+
+        .register-form:hover {
+            transform: rotateY(0deg); /* Effet 3D au survol */
+        }
+
+        .form-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            width: 100px;
+            font-weight: bold;
+        }
+
+        .form-group input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form class="register-form" method="post">
+          {{ form_start(registrationForm) }}
+            <h1>Register</h1>
+            <div class="form-group">
+                <label for="inputEmail">Email:</label>
+                {{ form_widget(registrationForm.email, { 'attr': {'class': 'form-control'} }) }}
+            </div>
+            <div class="form-group">
+                <label for="inputPassword">Password:</label>
+                {{ form_widget(registrationForm.plainPassword, { 'attr': {'class': 'form-control'} }) }}
+            </div>
+            <div class="form-group">
+                {{ form_widget(registrationForm.agreeTerms) }}
+                {{ form_label(registrationForm.agreeTerms) }}
+            </div>
+            <button type="submit" class="btn btn-lg btn-primary">Register</button>
+          {{ form_end(registrationForm) }}
+        </form>
+    </div>
+</body>
+</html>
+

@@ -5,7 +5,9 @@ namespace App\Controller\Admin;
 use App\Entity\Categories;
 use App\Entity\Article;
 use App\Entity\Hommes;
+use App\Entity\NewFemmes;
 use App\Repository\HommesRepository;
+use App\Repository\NewFemmesRepository;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -22,7 +24,7 @@ class DashboardController extends AbstractDashboardController
       
     
         return $this->render('admin/my-dashboard.html.twig', [
-            
+       
         ]);
     }
     

@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}NewFemmes index{% endblock %}
+
+{% block body %}
+    <h1>NewFemmes index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>FemmeImage</th>
+                <th>FemmeNom</th>
+                <th>FemmePrix</th>
+                <th>FemmeEtat</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for new_femme in new_femmes %}
+            <tr>
+                <td>{{ new_femme.id }}</td>
+                <td>{{ new_femme.FemmeImage }}</td>
+                <td>{{ new_femme.FemmeNom }}</td>
+                <td>{{ new_femme.FemmePrix }}</td>
+                <td>{{ new_femme.FemmeEtat }}</td>
+                <td>
+                    <a href="{{ path('app_new_femmes_show', {'id': new_femme.id}) }}">show</a>
+                    <a href="{{ path('app_new_femmes_edit', {'id': new_femme.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_new_femmes_new') }}">Create new</a>
+{% endblock %}

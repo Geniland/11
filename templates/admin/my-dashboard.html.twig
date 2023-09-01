@@ -1664,7 +1664,7 @@
             <div class="col-xxl-4 col-md-6">
               <div class="card info-card sales-card">
 
-                <img src="../../public/images/articles-Images/1.jpg" alt="">
+                <img src="{{asset('images/articles-Images/1.jpg')}}" alt="">
 
 
                 <div class="card-body">
@@ -1765,6 +1765,8 @@
 <!-- ---------------------------------------------Section HOMME---------------------------------------------------------------------------------- -->
 <section class="section dashboard" id="contenuHomme">
   <div class="row">
+
+    <div id="contenuHomme"></div>
 
     <!-- Left side columns -->
     <div class="col-lg-8">
@@ -2482,6 +2484,31 @@
         $('#contenuFemme').hide();
         $('#contenuHomme').show();
         
+        $.ajax({
+          url: "../../public/produits.json",
+          method: "GET",
+          dataType: "json",
+          success: function (data) {
+            var products = data.products;
+            var storeDiv = $("#contenuHomme");
+      
+            for (var i = 0; i < products.length; i++) {
+              var product = products[i];
+              var productDiv = $("<div>");
+              var nom = $("<h3>").text("Nom: " + product.nom);
+              var etat = $("<p>").text("État: " + product.etat);
+              var prix = $("<p>").text("Prix: " + product.prix + " FCFA");
+              var image = $("<img>").attr("src", product.image);
+      
+              productDiv.append(nom, etat, image, prix);
+              storeDiv.append(productDiv);
+            }
+          },
+          error: function () {
+            console.log("Erreur lors de la récupération des produits.");
+          }
+        });
+        
 
       });
 
@@ -2552,6 +2579,15 @@ $('.Panier').click(function(){
   $('.breadcrumb').hide();
   $('#Panier').show();
 })
+
+
+
+
+var fetchButton = $("#Hommes");
+ 
+fetchButton.click(function(){
+  
+});
 
 
 
